@@ -8,6 +8,7 @@
     "license": "gpl-2.0",
     "scripts": {
         "start": "webpack serve --mode development",
+        "start:http": "webpack serve --mode development --config webpack.http.config.js",
         "start-prod": "webpack serve --mode production",
         "build": "webpack --mode production",
         "test": "jest",
