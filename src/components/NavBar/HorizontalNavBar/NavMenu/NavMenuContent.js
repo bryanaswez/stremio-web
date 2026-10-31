@@ -16,6 +16,7 @@ const { default: usePlayUrl } = require('stremio/common/usePlayUrl');
 const useToast = require('stremio/common/Toast/useToast');
 const { withCoreSuspender } = require('stremio/common/CoreSuspender');
 const useStreamingServer = require('stremio/common/useStreamingServer');
+const { default: SyncStatus } = require('./SyncStatus');
 const styles = require('./styles');
 
 const NavMenuContent = ({ onClick }) => {
@@ -88,6 +89,7 @@ const NavMenuContent = ({ onClick }) => {
                     </Button>
                 </div>
             </div>
+            <SyncStatus className={styles['nav-menu-section']} />
             {
                 (supported && !isAndroidPWA) || install !== null ?
                     <div className={styles['nav-menu-section']}>

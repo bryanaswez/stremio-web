@@ -218,6 +218,7 @@ module.exports = (env, argv) => ({
         new webpack.ProgressPlugin(),
         new webpack.EnvironmentPlugin({
             SENTRY_DSN: null,
+            SYNC_RELAY_URL: null,
             ...env,
             SERVICE_WORKER_DISABLED: false,
             DEBUG: argv.mode !== 'production',

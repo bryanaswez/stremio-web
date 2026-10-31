@@ -15,8 +15,11 @@ if (-not (Test-Path $ShellPath)) {
     exit 1
 }
 
+# Check via 127.0.0.1: "localhost" tries IPv6 first, which the dev server doesn't
+# listen on, and the fallback can take seconds.
+$checkUrl = $WebUiUrl -replace '//localhost', '//127.0.0.1'
 try {
-    Invoke-WebRequest $WebUiUrl -UseBasicParsing -TimeoutSec 5 | Out-Null
+    Invoke-WebRequest $checkUrl -UseBasicParsing -TimeoutSec 15 | Out-Null
 } catch {
     Write-Error "Nothing is answering at $WebUiUrl. Start the dev server first with: pnpm run start:http"
     exit 1

@@ -12,6 +12,7 @@
         "start-prod": "webpack serve --mode production",
         "build": "webpack --mode production",
         "test": "jest",
+        "test:sync": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON tests/syncClient.node.mts",
         "lint": "eslint src --max-warnings 287",
         "scan-translations": "pnpx jest ./tests/i18nScan.test.js"
     },

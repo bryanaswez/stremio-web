@@ -8,6 +8,7 @@ const { useCore } = require('stremio/core');
 const { Routes, useGoBack } = require('stremio-router');
 const { Chromecast, ServicesProvider, GamepadProvider } = require('stremio/services');
 const { FullscreenProvider, ToastProvider, TooltipProvider, ShortcutsProvider, DiscordProvider, CONSTANTS, useBinaryState, useProfile, withCoreSuspender, usePlatform } = require('stremio/common');
+const { SyncProvider } = require('stremio/common/Sync');
 const ServicesToaster = require('./ServicesToaster');
 const SearchParamsHandler = require('./SearchParamsHandler');
 const DeepLinkHandler = require('./DeepLinkHandler');
@@ -174,7 +175,7 @@ const App = () => {
                                     <DeepLinkHandler />
                                     <ShellOpenHandler />
                                     <UpdaterBanner className={styles['updater-banner-container']} />
-                                    <ProtectedRoutes />
+                                    <SyncProvider><ProtectedRoutes /></SyncProvider>
                                 </DiscordProvider>
                             </FullscreenProvider>
                         </ShortcutsProvider>

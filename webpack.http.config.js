@@ -4,6 +4,10 @@
 
 const baseConfig = require('./webpack.config.js');
 
+// Point the sync feature at the local relay (npm run dev in stremio-sync-relay)
+// unless SYNC_RELAY_URL is already set.
+process.env.SYNC_RELAY_URL = process.env.SYNC_RELAY_URL || 'ws://127.0.0.1:8787';
+
 module.exports = (env, argv) => {
     const config = baseConfig(env, argv);
     return {
